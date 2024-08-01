@@ -7,8 +7,9 @@ import argparse
 def process_blend_file(blender_path, blender_file, scripts):
     print(f"Processing Blender file: {blender_file}")
     # Construct the full command to open Blender and run all scripts
-    # command = [blender_path, blender_file, "--background"]
     command = [blender_path, blender_file]
+    if not "--foreground" in sys.argv:
+        command.append("--background")
     for script in scripts:
         command.extend(["--python", script])
     
@@ -38,6 +39,7 @@ def process_blend_file(blender_path, blender_file, scripts):
 def main():
     parser = argparse.ArgumentParser(description="Run Blender scripts on multiple Blender files.")
     parser.add_argument("--folder", type=str, help="Path to the folder containing Blender files.", required=True)
+    parser.add_argument("--foreground", action="store_true", help="Option to run Blender in the foreground instead of background.")
     args = parser.parse_args()
 
     # Path to the Blender executable
