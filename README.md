@@ -40,6 +40,7 @@
      python automaticFreemocapRetarget.py --folder /path/to/your/blend/files
      ```
    - Replace `/path/to/your/blend/files` with the path to your directory containing `.blend` files.
+   - There is also a flag for running blender in the foreground (--foreground), useful if you want to manually see the results within blender. Furthermore, there is a flag to autoscale the target avatar (currently only works for RPM, --autoScale), useful if you have different actors for the Freemocap recordings.
 
 ## Notes
 Currently only tested for the glassesguy avatar made with [ReadyPlayerMe](https://readyplayer.me/)
