@@ -40,6 +40,7 @@ def main():
     parser = argparse.ArgumentParser(description="Run Blender scripts on multiple Blender files.")
     parser.add_argument("--folder", type=str, help="Path to the folder containing Blender files.", required=True)
     parser.add_argument("--foreground", action="store_true", help="Option to run Blender in the foreground instead of background.")
+    parser.add_argument("--autoScale", action="store_true", help="Option to autoScale the RPM avatar to match the source armature scale.")
     args = parser.parse_args()
 
     # Path to the Blender executable
@@ -50,7 +51,13 @@ def main():
     script_dir = os.path.join(script_dir, "blenderScripts")
     scripts = [
         os.path.join(script_dir, "freemocapAddRig.py"),
-        os.path.join(script_dir, "importGlassesGuy.py"),
+        os.path.join(script_dir, "importGlassesGuy.py")]
+    
+    if args.autoScale:
+        scripts.append(os.path.join(script_dir, "autoScaleRPM.py"))
+    
+    scripts.extend([
+        os.path.join(script_dir, "autoScaleRPM.py"),
         os.path.join(script_dir, "selectArmaturesPoseMode.py"),
         os.path.join(script_dir, "expyKitBind.py"),
         # os.path.join(script_dir, "expykitBakeAnimByName.py"),
@@ -58,7 +65,7 @@ def main():
         # os.path.join(script_dir, "bakeAndAssignAnim.py"),
         os.path.join(script_dir, "exportFBXGG.py"),
         # os.path.join(script_dir, "blenderQuit.py")
-    ]
+    ])
 
     # Get all .blend files in the specified folder
     blend_files = [os.path.join(args.folder, f) for f in os.listdir(args.folder) if f.endswith('.blend')]
