@@ -50,30 +50,28 @@ if obj is not None:
 
     # Define the export path
     blend_filename = os.path.basename(blend_file_path)
-    fbx_filename = os.path.splitext(blend_filename)[0] + ".fbx"
-    export_path = os.path.join(out_dir, fbx_filename)
+    gltf_filename = os.path.splitext(blend_filename)[0] + ".glb"
+    export_path = os.path.join(out_dir, gltf_filename)
     print(f"Export path: {export_path}", flush=True)
 
-    # Export selected objects to FBX
+    # Export selected objects to GLTF
     try:
-        bpy.ops.export_scene.fbx(
+        bpy.ops.export_scene.gltf(
             filepath=export_path,
             use_selection=True,
-            axis_forward='-Z',
-            axis_up='Y',
-            apply_unit_scale=True,
-            use_space_transform=True,
-            armature_nodetype='NULL',
-            add_leaf_bones=False,
-            bake_anim=True,
-            bake_anim_use_all_actions=False,
-            bake_anim_use_nla_strips=False,
-            bake_anim_use_all_bones=False,
-            bake_anim_force_startend_keying=False
+            export_format='GLB',  # 'GLB' for binary format, 'GLTF_SEPARATE' for separate files
+            export_apply=True,  # Apply transformations
+            export_materials='EXPORT',  # Export materials
+            export_texture_dir=out_dir,  # Directory for textures if 'GLTF_SEPARATE'
+            export_colors=True,  # Export vertex colors
+            export_draco_mesh_compression_enable=False,  # Enable Draco compression (optional)
+            export_extras=False,  # Export extra data
+            export_cameras=False,  # Export cameras
+            export_lights=False  # Export lights
         )
         print("Export complete", flush=True)
     except Exception as e:
-        print(f"Failed to export FBX: {e}", flush=True)
+        print(f"Failed to export GLTF: {e}", flush=True)
 else:
     print(f"Object '{object_name}' not found")
 

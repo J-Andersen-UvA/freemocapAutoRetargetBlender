@@ -54,16 +54,19 @@ def main():
         os.path.join(script_dir, "importGlassesGuy.py")]
     
     if args.autoScale:
+        print("Auto-scaling RPM avatars.", flush=True)
         scripts.append(os.path.join(script_dir, "autoScaleRPM.py"))
     
     scripts.extend([
-        os.path.join(script_dir, "autoScaleRPM.py"),
         os.path.join(script_dir, "selectArmaturesPoseMode.py"),
         os.path.join(script_dir, "expyKitBind.py"),
         # os.path.join(script_dir, "expykitBakeAnimByName.py"),
         os.path.join(script_dir, "assignAnimDataSelectActionByName.py"),
         # os.path.join(script_dir, "bakeAndAssignAnim.py"),
-        os.path.join(script_dir, "exportFBXGG.py"),
+        # os.path.join(script_dir, "unscaleRPM.py"),
+        # os.path.join(script_dir, "restoreBoneRolls.py"),
+        os.path.join(script_dir, "exportGLTFGG.py"),
+        # os.path.join(script_dir, "exportFBXGG.py"),
         # os.path.join(script_dir, "blenderQuit.py")
     ])
 
