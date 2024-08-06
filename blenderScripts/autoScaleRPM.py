@@ -8,7 +8,8 @@ def get_shoulder_height(armature_name, left_shoulder_bone, right_shoulder_bone):
 
 # Replace these with the names of your armatures and shoulder bones
 source_armature_name = "root"
-target_armature_name = "Hips"
+# target_armature_name = "Hips"
+target_armature_name = "glassesGuy"
 target_left_shoulder_bone_name = "LeftShoulder"
 target_right_shoulder_bone_name = "RightShoulder"
 source_left_shoulder_bone_name = "shoulder.L"

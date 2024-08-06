@@ -53,6 +53,7 @@ def select_armature_and_action_by_name(armature_name, action_name):
     bpy.context.view_layer.update()
 
 # Wait for the animation bake to complete
-armature_name = "Hips"
+# armature_name = "Hips"
+armature_name = "glassesGuy"
 action_name = "Action.001"
 select_armature_and_action_by_name(armature_name, action_name)

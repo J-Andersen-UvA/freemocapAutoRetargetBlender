@@ -1,8 +1,8 @@
 import bpy
 import os
 
-# Define the object name
-object_name = "glassesGuy"
+# Define the armature name
+armature_name = "glassesGuy"
 
 print("Starting export script...", flush=True)
 
@@ -13,20 +13,22 @@ if bpy.context.object and bpy.context.object.mode != 'OBJECT':
 # Deselect all objects
 bpy.ops.object.select_all(action='DESELECT')
 
-# Get the object
-obj = bpy.data.objects.get(object_name)
+# Get the armature object
+armature = bpy.data.objects.get(armature_name)
 
-if obj is not None:
-    print(f"Object '{object_name}' found, proceeding with export...")
+if armature is not None and armature.type == 'ARMATURE':
+    print(f"Armature '{armature_name}' found, proceeding with export...")
     
-    # Select the object
-    obj.select_set(True)
+    # Select the armature
+    armature.select_set(True)
 
-    # Set the context to the object
-    bpy.context.view_layer.objects.active = obj
+    # Set the context to the armature
+    bpy.context.view_layer.objects.active = armature
 
     # Select the entire hierarchy
     bpy.ops.object.select_grouped(type='CHILDREN_RECURSIVE')
+    # Dont forget the armature
+    armature.select_set(True)
 
     # Get the current blend file path
     blend_file_path = bpy.data.filepath
@@ -67,12 +69,16 @@ if obj is not None:
             export_draco_mesh_compression_enable=False,  # Enable Draco compression (optional)
             export_extras=False,  # Export extra data
             export_cameras=False,  # Export cameras
-            export_lights=False  # Export lights
+            export_lights=False,  # Export lights
+            export_bake_animation=True,  # Bake animations
+            export_animation_mode='ACTIONS',  # Animation export mode
+            export_anim_single_armature=True,  # Export animations for a single armature
+            export_reset_pose_bones=True,  # Reset pose bones
         )
         print("Export complete", flush=True)
     except Exception as e:
         print(f"Failed to export GLTF: {e}", flush=True)
 else:
-    print(f"Object '{object_name}' not found")
+    print(f"Armature '{armature_name}' not found or is not an armature")
 
 print("Script finished")

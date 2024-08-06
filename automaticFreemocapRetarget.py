@@ -51,7 +51,9 @@ def main():
     script_dir = os.path.join(script_dir, "blenderScripts")
     scripts = [
         os.path.join(script_dir, "freemocapAddRig.py"),
-        os.path.join(script_dir, "importGlassesGuy.py")]
+        # os.path.join(script_dir, "importGlassesGuyFBX.py"),
+        os.path.join(script_dir, "importGlassesGuyGLTF.py"),
+    ]
     
     if args.autoScale:
         print("Auto-scaling RPM avatars.", flush=True)

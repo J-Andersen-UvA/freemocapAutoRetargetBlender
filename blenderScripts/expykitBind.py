@@ -36,7 +36,8 @@ def run_constrain_to_armature(src_preset, trg_preset):
         
         # Select 'root' and 'Hips' armatures
         bpy.data.objects['root'].select_set(True)
-        bpy.data.objects['Hips'].select_set(True)
+        # bpy.data.objects['Hips'].select_set(True)
+        bpy.data.objects['glassesGuy'].select_set(True)
         
         # Set 'root' as the active object
         bpy.context.view_layer.objects.active = bpy.data.objects['root']

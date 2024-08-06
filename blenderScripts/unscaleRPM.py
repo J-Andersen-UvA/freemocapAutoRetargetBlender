@@ -34,5 +34,6 @@ bpy.ops.object.select_all(action='DESELECT')
 obj = bpy.data.objects.get(object_name)
 
 # Example usage to unscale:
-target_armature_name = "Hips"  # Replace with your target armature name
+# target_armature_name = "Hips"  # Replace with your target armature name
+target_armature_name = "glassesGuy"  # Replace with your target armature name
 unscale_target_armature(target_armature_name)

@@ -19,7 +19,8 @@ for obj in bpy.context.scene.objects:
         obj.select_set(False)
 
 # Select the armature named "Hips"
-hips_armature = bpy.data.objects.get("Hips")
+# hips_armature = bpy.data.objects.get("Hips")
+hips_armature = bpy.data.objects.get("glassesGuy")
 if hips_armature and hips_armature.type == 'ARMATURE':
     hips_armature.select_set(True)
     bpy.context.view_layer.objects.active = hips_armature
