@@ -26,7 +26,7 @@ bpy.ops.import_scene.gltf(
     import_pack_images=True,
     import_shading='NORMALS',
     guess_original_bind_pose=True,
-    bone_heuristic='TEMPERANCE',
+    bone_heuristic='BLENDER',
 )
 
 # Apply all transforms to the imported objects
@@ -39,16 +39,16 @@ for obj in bpy.context.selected_objects:
 
 # Save bone rolls of the armature before import
 original_armature = bpy.data.objects.get("glassesGuy")  # Replace "Armature" with the actual name of your armature if different
-if original_armature and original_armature.type == 'ARMATURE':
-    original_bone_rolls = save_bone_rolls(original_armature)
-    # Save the bone rolls to a JSON file
-    bone_rolls_path = os.path.join(script_dir, "bone_rolls.json")
-    with open(bone_rolls_path, 'w') as f:
-        json.dump(original_bone_rolls, f)
-    print("Bone rolls saved to", bone_rolls_path, flush=True)
-else:
-    original_bone_rolls = None
-    print("Original armature not found or not an armature type.", flush=True)
+# if original_armature and original_armature.type == 'ARMATURE':
+#     original_bone_rolls = save_bone_rolls(original_armature)
+#     # Save the bone rolls to a JSON file
+#     bone_rolls_path = os.path.join(script_dir, "bone_rolls.json")
+#     with open(bone_rolls_path, 'w') as f:
+#         json.dump(original_bone_rolls, f)
+#     print("Bone rolls saved to", bone_rolls_path, flush=True)
+# else:
+#     original_bone_rolls = None
+#     print("Original armature not found or not an armature type.", flush=True)
 
 # Apply all transforms
 print("Applying transforms...", flush=True)

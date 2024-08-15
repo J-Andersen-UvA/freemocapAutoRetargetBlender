@@ -41,6 +41,7 @@ def main():
     parser.add_argument("--folder", type=str, help="Path to the folder containing Blender files.", required=True)
     parser.add_argument("--foreground", action="store_true", help="Option to run Blender in the foreground instead of background.")
     parser.add_argument("--autoScale", action="store_true", help="Option to autoScale the RPM avatar to match the source armature scale.")
+    parser.add_argument("--feetLocking", action="store_true", help="Option to use feet locking option by freemocap addon.")
     args = parser.parse_args()
 
     # Path to the Blender executable
@@ -49,11 +50,16 @@ def main():
     # Paths to the scripts
     script_dir = os.path.dirname(os.path.realpath(__file__))
     script_dir = os.path.join(script_dir, "blenderScripts")
-    scripts = [
+    scripts = []
+
+    if args.feetLocking:
+        scripts = [os.path.join(script_dir, "lockFeet.py")]
+
+    scripts.extend([
         os.path.join(script_dir, "freemocapAddRig.py"),
         # os.path.join(script_dir, "importGlassesGuyFBX.py"),
         os.path.join(script_dir, "importGlassesGuyGLTF.py"),
-    ]
+    ])
     
     if args.autoScale:
         print("Auto-scaling RPM avatars.", flush=True)
