@@ -20,7 +20,7 @@
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/J-Andersen-UvA/freemocapBlenderAutoRetarget.git
-   cd freemocapBlenderAutoRetarget```
+   ```
 2. **Configure Blender Path**:
    - Edit the main() function in auto_retarget.py to set the path to your Blender executable (blender_path).
 
