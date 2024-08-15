@@ -6,7 +6,6 @@
 
 - **Batch Processing**: Automatically processes multiple `.blend` files in a specified directory.
 - **Script Automation**: Runs a series of predefined Blender Python scripts for rigging, baking, and exporting animations.
-- **Real-Time Output**: Provides real-time output during script execution for better monitoring and debugging.
 
 ## Prerequisites
 
