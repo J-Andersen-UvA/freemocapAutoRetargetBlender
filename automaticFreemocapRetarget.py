@@ -42,6 +42,7 @@ def main():
     parser.add_argument("--foreground", action="store_true", help="Option to run Blender in the foreground instead of background.")
     parser.add_argument("--autoScale", action="store_true", help="Option to autoScale the RPM avatar to match the source armature scale.")
     parser.add_argument("--feetLocking", action="store_true", help="Option to use feet locking option by freemocap addon.")
+    parser.add_argument("--exportSkelly", action="store_true", help="Option to export the freemocap skelly in addition to the normal export.")
     args = parser.parse_args()
 
     # Path to the Blender executable
@@ -52,8 +53,11 @@ def main():
     script_dir = os.path.join(script_dir, "blenderScripts")
     scripts = []
 
+    if args.exportSkelly:
+        scripts.extend([os.path.join(script_dir, "exportSkellyGLTF.py")])
+
     if args.feetLocking:
-        scripts = [os.path.join(script_dir, "lockFeet.py")]
+        scripts.extend([os.path.join(script_dir, "lockFeet.py")])
 
     scripts.extend([
         os.path.join(script_dir, "freemocapAddRig.py"),
