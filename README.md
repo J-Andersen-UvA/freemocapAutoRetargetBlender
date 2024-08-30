@@ -6,7 +6,6 @@
 
 - **Batch Processing**: Automatically processes multiple `.blend` files in a specified directory.
 - **Script Automation**: Runs a series of predefined Blender Python scripts for rigging, baking, and exporting animations.
-- **Real-Time Output**: Provides real-time output during script execution for better monitoring and debugging.
 
 ## Prerequisites
 
@@ -19,8 +18,8 @@
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/freemocapBlenderAutoRetarget.git
-   cd freemocapBlenderAutoRetarget```
+   git clone https://github.com/J-Andersen-UvA/freemocapBlenderAutoRetarget.git
+   ```
 2. **Configure Blender Path**:
    - Edit the main() function in auto_retarget.py to set the path to your Blender executable (blender_path).
 
