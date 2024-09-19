@@ -9,10 +9,11 @@
 
 ## Prerequisites
 
-- **Blender**: Ensure [Blender](https://www.blender.org/) is installed on your system. The script is configured for Blender 4.0.
+- **Blender**: Ensure [Blender](https://www.blender.org/) is installed on your system. The script is configured for Blender 4.0 (no tests have been done on other versions so beware).
 - **Python**: Python 3.x is required. The script uses `subprocess` for running Blender commands.
 - **FreeMoCap adapter Addon**: The script integrates with the [FreeMoCap adapter Blender addon by ajc-27](https://github.com/ajc27-git/freemocap_tools). Ensure the addon is installed and properly configured in Blender.
 - **ExpyKit Addon**: The script also relies on the [ExpyKit addon by ballsandninjas](https://ballsandninjas.gumroad.com/l/xotibs) for animation retargeting.
+- **Environment**: The script has been tested on a linux machine and it did not work, either use Windows 11 or try to dockerize the implementation.
 
 ## Installation
 
